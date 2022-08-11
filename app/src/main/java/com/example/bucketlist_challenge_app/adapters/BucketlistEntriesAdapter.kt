@@ -1,6 +1,7 @@
 package com.example.bucketlist_challenge_app.adapters
 
 import android.content.Context
+import android.content.DialogInterface
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,8 @@ import com.example.bucketlist_challenge_app.models.BucketlistEntryModel
 class BucketlistEntriesAdapter(
     private val context: Context, private var list: ArrayList<BucketlistEntryModel>
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+    private var onClickListener: OnClickListener? = null
 
     /**
      * Inflates the item views which is designed in xml layout file
@@ -30,6 +33,10 @@ class BucketlistEntriesAdapter(
                 false
             )
         )
+    }
+
+    fun setOnClickListener(onClickListener: OnClickListener) {
+        this.onClickListener = onClickListener
     }
 
     /**
@@ -50,7 +57,16 @@ class BucketlistEntriesAdapter(
                 .setImageURI(Uri.parse(model.imagePath))
             holder.itemView.findViewById<TextView>(R.id.tv_entry_title).text = model.title
             holder.itemView.findViewById<TextView>(R.id.tv_entry_date).text = model.description
+            holder.itemView.setOnClickListener{
+                if(onClickListener != null){
+                    onClickListener!!.onClick(position, model)
+                }
+            }
         }
+    }
+
+    interface OnClickListener {
+        fun onClick(position: Int, model: BucketlistEntryModel)
     }
 
     /**

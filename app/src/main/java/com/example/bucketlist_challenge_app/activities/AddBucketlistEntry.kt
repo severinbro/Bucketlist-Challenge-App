@@ -46,6 +46,7 @@ class AddBucketlistEntry : AppCompatActivity(), View.OnClickListener {
 
         setSupportActionBar(findViewById(R.id.toolbar_add_entry))
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.title = "Eintrag hinzufügen"
 
         findViewById<EditText>(R.id.et_date).setOnClickListener(this)
         findViewById<AppCompatImageView>(R.id.img_add_entry).setOnClickListener(this)

@@ -38,6 +38,14 @@ class MainActivity : AppCompatActivity() {
 
         val entriesAdapter = BucketlistEntriesAdapter(this, bucketlistEntriesList)
         rv_bucketlist_entries_list.adapter = entriesAdapter
+
+        entriesAdapter.setOnClickListener(object: BucketlistEntriesAdapter.OnClickListener{
+            override fun onClick(position: Int, model: BucketlistEntryModel) {
+                val intent = Intent(this@MainActivity, DetailView::class.java)
+                intent.putExtra(EXTRA_ENTRY_DETAILS, model)
+                startActivity(intent)
+            }
+        })
     }
 
     private fun getBucketlistEntriesListFromLocalDB() {
@@ -67,6 +75,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
     companion object {
-        private const val ADD_ENTRY_REQUEST_CODE = 65133816
+        var ADD_ENTRY_REQUEST_CODE = 65133816
+        var EXTRA_ENTRY_DETAILS = "extra_entry_details"
     }
 }
