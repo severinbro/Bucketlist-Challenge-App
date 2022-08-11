@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Bucketlist-Challenge-App</string>
+    <string name="title_add_entry">Bucketlist-Eintrag hinzufügen</string>
+    <string name="et_title_hint">Titel…</string>
+    <string name="et_datetime">Datum…</string>
+    <string name="et_location">Ort…</string>
+    <string name="et_description">Beschreibung…</string>
+    <string name="title_detail_view">Detailansicht</string>
+    <string name="btn_save">Speichern</string>
+</resources>
