@@ -5,4 +5,13 @@
     <dimen name="et_textsize">24sp</dimen>
     <dimen name="image_height_add_entry">244dp</dimen>
     <dimen name="et_description">244dp</dimen>
+
+    <dimen name="entry_content_padding">5dp</dimen>
+    <dimen name="entry_circular_image_size">70dp</dimen>
+    <dimen name="entry_ll_marginStart">10dp</dimen>
+    <dimen name="entry_ll_marginEnd">2dp</dimen>
+    <dimen name="entry_title_textsize">16sp</dimen>
+    <dimen name="entry_date_textsize">14sp</dimen>
+    <dimen name="card_corner_radius">3dp</dimen>
+
 </resources>

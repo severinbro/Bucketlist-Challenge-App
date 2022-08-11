@@ -115,7 +115,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/til_description"
-                android:text="@string/btn_save"/>
+                android:text="@string/btn_save"
+                android:textStyle="bold"
+                android:background="@color/light_cyan"
+                android:textColor="@color/white"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -129,11 +129,7 @@ class AddBucketlistEntry : AppCompatActivity(), View.OnClickListener {
                         val bucketlistEntry = dbHandler.addBucketlistEntry(bucketlistEntryModel)
 
                         if (bucketlistEntry > 0) {
-                            Toast.makeText(
-                                this@AddBucketlistEntry,
-                                "Der Eintrag wurde erfolgreich angelegt!",
-                                Toast.LENGTH_SHORT
-                            ).show()
+                            setResult(Activity.RESULT_OK)
                             finish()
                         }
                     }
