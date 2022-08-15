@@ -1,7 +1,9 @@
 package com.example.bucketlist_challenge_app.adapters
 
+import android.app.Activity
 import android.content.Context
 import android.content.DialogInterface
+import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +12,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bucketlist_challenge_app.R
+import com.example.bucketlist_challenge_app.activities.AddBucketlistEntry
+import com.example.bucketlist_challenge_app.activities.MainActivity
 import com.example.bucketlist_challenge_app.models.BucketlistEntryModel
 
 class BucketlistEntriesAdapter(
@@ -67,6 +71,13 @@ class BucketlistEntriesAdapter(
 
     interface OnClickListener {
         fun onClick(position: Int, model: BucketlistEntryModel)
+    }
+
+    fun notifyEditItem(activity: Activity, position: Int, requestCode: Int){
+        val intent = Intent(context, AddBucketlistEntry::class.java)
+        intent.putExtra(MainActivity.EXTRA_ENTRY_DETAILS, list[position])
+        activity.startActivityForResult(intent, requestCode)
+        notifyItemChanged(position)
     }
 
     /**

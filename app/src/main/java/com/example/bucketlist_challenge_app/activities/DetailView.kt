@@ -16,7 +16,8 @@ class DetailView : AppCompatActivity() {
         var bucketlistDetailModel: BucketlistEntryModel? = null
         if (intent.hasExtra(MainActivity.EXTRA_ENTRY_DETAILS)) {
             bucketlistDetailModel =
-                intent.getSerializableExtra(MainActivity.EXTRA_ENTRY_DETAILS) as BucketlistEntryModel
+                intent.getSerializableExtra(
+                    MainActivity.EXTRA_ENTRY_DETAILS)!! as BucketlistEntryModel
         }
 
         if (bucketlistDetailModel != null) {

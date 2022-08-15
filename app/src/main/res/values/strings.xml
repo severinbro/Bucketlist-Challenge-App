@@ -6,7 +6,7 @@
     <string name="et_location">Ort…</string>
     <string name="et_description">Beschreibung…</string>
     <string name="title_detail_view">Detailansicht</string>
-    <string name="btn_save">Speichern</string>
+    <string name="btn_save">SPEICHERN</string>
     <string name="no_entries_yet">Keine Einträge vorhanden.</string>
 
     <string name="image_content_description">image</string>

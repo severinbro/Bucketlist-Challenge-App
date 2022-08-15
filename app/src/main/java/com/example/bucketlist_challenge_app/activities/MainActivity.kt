@@ -8,12 +8,14 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bucketlist_challenge_app.R
 import com.example.bucketlist_challenge_app.adapters.BucketlistEntriesAdapter
 import com.example.bucketlist_challenge_app.database.DatabaseHandler
 import com.example.bucketlist_challenge_app.models.BucketlistEntryModel
+import pl.kitek.rvswipetodelete.SwipeToEditCallback
 
 class MainActivity : AppCompatActivity() {
 
@@ -46,6 +48,17 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         })
+
+        val editSwipeHandler = object : SwipeToEditCallback(this){
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val adapter = rv_bucketlist_entries_list.adapter as BucketlistEntriesAdapter
+                adapter.notifyEditItem(this@MainActivity, viewHolder.adapterPosition, ADD_ENTRY_REQUEST_CODE)
+            }
+        }
+
+        val editItemTouchHelper = ItemTouchHelper(editSwipeHandler)
+        editItemTouchHelper.attachToRecyclerView(rv_bucketlist_entries_list)
+
     }
 
     private fun getBucketlistEntriesListFromLocalDB() {

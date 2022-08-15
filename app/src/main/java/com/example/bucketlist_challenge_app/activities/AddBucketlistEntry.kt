@@ -40,6 +40,8 @@ class AddBucketlistEntry : AppCompatActivity(), View.OnClickListener {
     private var mlatitude: Double = 0.0
     private var mlongitude: Double = 0.0
 
+    private var mBucketlistEntryDetails: BucketlistEntryModel? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_bucketlist_entry)
@@ -48,11 +50,10 @@ class AddBucketlistEntry : AppCompatActivity(), View.OnClickListener {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.title = "Eintrag hinzufügen"
 
-        findViewById<EditText>(R.id.et_date).setOnClickListener(this)
-        findViewById<AppCompatImageView>(R.id.img_add_entry).setOnClickListener(this)
-        findViewById<Button>(R.id.btn_save).setOnClickListener(this)
-
-        updateDateInView()
+        if (intent.hasExtra(MainActivity.EXTRA_ENTRY_DETAILS)) {
+            mBucketlistEntryDetails =
+                intent.getSerializableExtra(MainActivity.EXTRA_ENTRY_DETAILS) as BucketlistEntryModel
+        }
 
         dateSetListener = DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
             cal.set(Calendar.YEAR, year)
@@ -60,6 +61,29 @@ class AddBucketlistEntry : AppCompatActivity(), View.OnClickListener {
             cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
             updateDateInView()
         }
+        updateDateInView()
+
+        if(mBucketlistEntryDetails != null){
+            supportActionBar?.title = "Eintrag Bearbeiten"
+
+            findViewById<EditText>(R.id.et_title)!!.setText(mBucketlistEntryDetails!!.title)
+            findViewById<EditText>(R.id.et_date)!!.setText(mBucketlistEntryDetails!!.date)
+            findViewById<EditText>(R.id.et_description)!!.setText(mBucketlistEntryDetails!!.description)
+            findViewById<EditText>(R.id.et_location)!!.setText(mBucketlistEntryDetails!!.location)
+            mlatitude = mBucketlistEntryDetails!!.latitude
+            mlongitude = mBucketlistEntryDetails!!.longitude
+
+            saveImageToInternalStorage = Uri.parse(mBucketlistEntryDetails!!.imagePath)
+            findViewById<ImageView>(R.id.img_add_entry)!!.setImageURI(saveImageToInternalStorage)
+
+            findViewById<Button>(R.id.btn_save)!!.text = "UPDATE"
+
+        }
+
+        findViewById<EditText>(R.id.et_date).setOnClickListener(this)
+        findViewById<AppCompatImageView>(R.id.img_add_entry).setOnClickListener(this)
+        findViewById<Button>(R.id.btn_save).setOnClickListener(this)
+
     }
 
     override fun onClick(p0: View?) {
