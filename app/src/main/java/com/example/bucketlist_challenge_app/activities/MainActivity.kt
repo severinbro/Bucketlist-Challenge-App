@@ -15,6 +15,7 @@ import com.example.bucketlist_challenge_app.R
 import com.example.bucketlist_challenge_app.adapters.BucketlistEntriesAdapter
 import com.example.bucketlist_challenge_app.database.DatabaseHandler
 import com.example.bucketlist_challenge_app.models.BucketlistEntryModel
+import com.happyplaces.utils.SwipeToDeleteCallback
 import pl.kitek.rvswipetodelete.SwipeToEditCallback
 
 class MainActivity : AppCompatActivity() {
@@ -58,6 +59,18 @@ class MainActivity : AppCompatActivity() {
 
         val editItemTouchHelper = ItemTouchHelper(editSwipeHandler)
         editItemTouchHelper.attachToRecyclerView(rv_bucketlist_entries_list)
+
+        val deleteSwipeHandler = object : SwipeToDeleteCallback(this){
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val adapter = rv_bucketlist_entries_list.adapter as BucketlistEntriesAdapter
+                adapter.removeAt(viewHolder.adapterPosition)
+
+                getBucketlistEntriesListFromLocalDB()
+            }
+        }
+
+        val deleteItemTouchHelper = ItemTouchHelper(deleteSwipeHandler)
+        deleteItemTouchHelper.attachToRecyclerView(rv_bucketlist_entries_list)
 
     }
 

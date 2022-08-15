@@ -64,6 +64,31 @@ class DatabaseHandler(context: Context) :
         return result
     }
 
+    fun updateBucketlistEntry(listEntry: BucketlistEntryModel): Int {
+        val db = this.writableDatabase
+
+        val contentValues = ContentValues()
+        contentValues.put(KEY_TITLE, listEntry.title)
+        contentValues.put(KEY_IMAGE, listEntry.imagePath)
+        contentValues.put(KEY_DESCRIPTION, listEntry.description)
+        contentValues.put(KEY_DATE, listEntry.date)
+        contentValues.put(KEY_LOCATION, listEntry.location)
+        contentValues.put(KEY_LONGITUDE, listEntry.longitude)
+        contentValues.put(KEY_LATITUDE, listEntry.latitude)
+
+        val success = db.update(TABLE_NAME, contentValues, KEY_ID + "=" + listEntry.id, null)
+
+        db.close()
+        return success
+    }
+
+    fun deleteBucketlistEntry(listEntry: BucketlistEntryModel) : Int {
+        val db = this.writableDatabase
+        val success = db.delete(TABLE_NAME, KEY_ID + "=" + listEntry.id, null)
+        db.close()
+        return success
+    }
+
     @SuppressLint("Range")
     fun getBucketlistEntriesList(): ArrayList<BucketlistEntryModel> {
         val bucketListEntriesList = ArrayList<BucketlistEntryModel>()

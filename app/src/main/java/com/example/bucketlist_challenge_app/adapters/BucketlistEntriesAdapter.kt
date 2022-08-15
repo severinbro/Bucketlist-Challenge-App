@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.bucketlist_challenge_app.R
 import com.example.bucketlist_challenge_app.activities.AddBucketlistEntry
 import com.example.bucketlist_challenge_app.activities.MainActivity
+import com.example.bucketlist_challenge_app.database.DatabaseHandler
 import com.example.bucketlist_challenge_app.models.BucketlistEntryModel
 
 class BucketlistEntriesAdapter(
@@ -71,6 +72,15 @@ class BucketlistEntriesAdapter(
 
     interface OnClickListener {
         fun onClick(position: Int, model: BucketlistEntryModel)
+    }
+
+    fun removeAt(position: Int){
+        val dbHandler = DatabaseHandler(context)
+        val isDeleted = dbHandler.deleteBucketlistEntry(list[position])
+        if(isDeleted > 0){
+            list.removeAt(position)
+            notifyItemRemoved(position)
+        }
     }
 
     fun notifyEditItem(activity: Activity, position: Int, requestCode: Int){

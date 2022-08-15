@@ -141,7 +141,7 @@ class AddBucketlistEntry : AppCompatActivity(), View.OnClickListener {
                     }
                     else -> {
                         val bucketlistEntryModel = BucketlistEntryModel(
-                            0,
+                            if(mBucketlistEntryDetails == null) 0 else mBucketlistEntryDetails!!.id,
                             findViewById<EditText>(R.id.et_title).text.toString(),
                             saveImageToInternalStorage.toString(),
                             findViewById<EditText>(R.id.et_description).text.toString(),
@@ -151,12 +151,21 @@ class AddBucketlistEntry : AppCompatActivity(), View.OnClickListener {
                             mlongitude
                         )
                         val dbHandler = DatabaseHandler(this)
-                        val bucketlistEntry = dbHandler.addBucketlistEntry(bucketlistEntryModel)
+                        if(mBucketlistEntryDetails == null){
+                            val bucketlistEntry = dbHandler.addBucketlistEntry(bucketlistEntryModel)
 
-                        if (bucketlistEntry > 0) {
-                            setResult(Activity.RESULT_OK)
-                            finish()
+                            if (bucketlistEntry > 0) {
+                                setResult(Activity.RESULT_OK)
+                                finish()
+                            }
+                        }else{
+                            val updateBucketListEntry = dbHandler.updateBucketlistEntry(bucketlistEntryModel)
+                            if(updateBucketListEntry > 0){
+                                setResult(Activity.RESULT_OK)
+                                finish()
+                            }
                         }
+
                     }
                 }
             }
