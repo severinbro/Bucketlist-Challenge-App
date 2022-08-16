@@ -24,7 +24,6 @@
             android:theme="@style/Theme.AppCompat.Light">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -33,9 +32,10 @@
             android:name=".activities.AddBucketlistEntry"
             android:label="@string/title_add_entry"
             android:parentActivityName=".activities.MainActivity"
-            android:screenOrientation="fullSensor"
+            android:screenOrientation="portrait"
             android:theme="@style/CustomNoActionBarTheme"
-            android:exported="false" >
+            android:exported="false"
+            tools:ignore="LockedOrientationActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.MainActivity"/>
@@ -44,9 +44,10 @@
         <activity android:name=".activities.DetailView"
             android:label="@string/title_detail_view"
             android:parentActivityName=".activities.MainActivity"
-            android:screenOrientation="fullSensor"
+            android:screenOrientation="portrait"
             android:theme="@style/CustomNoActionBarTheme"
-            android:exported="false">
+            android:exported="false"
+            tools:ignore="LockedOrientationActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.MainActivity"/>
