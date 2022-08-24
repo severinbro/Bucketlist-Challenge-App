@@ -11,10 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/cyan"
-        android:theme="@style/CustomToolbarStyle"
         app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="@color/white"
+        />
 
     <ScrollView
         android:id="@+id/sv_entry_detail"
@@ -35,66 +37,115 @@
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/img_entry_detail"
                 android:layout_width="match_parent"
+                android:layout_marginVertical="5dp"
                 android:layout_height="@dimen/image_height_add_entry"
+                app:layout_constraintCircleRadius="@dimen/border_radius"
                 android:scaleType="centerCrop"
                 android:src="@drawable/placeholder_image_300x225"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@drawable/image_view_border"/>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_date_detail"
+            <LinearLayout
+                android:orientation="vertical"
+                android:id="@+id/ll_date_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:theme="@style/CustomTextLabel"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:gravity="left"
+                app:layout_constraintTop_toBottomOf="@id/img_entry_detail"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/img_entry_detail">
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginVertical="5dp">
+
+                <TextView
+                    android:id="@+id/tv_date_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Datum: "
+                    android:textSize="@dimen/text_24sp"
+                    android:textColor="@color/cyan"
+                    android:padding="@dimen/text_padding"
+                    />
 
                 <TextView
                     android:id="@+id/tv_date_detail"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:autofillHints="Datum"
                     android:focusable="false"
                     android:focusableInTouchMode="false"
-                    android:hint="@string/et_datetime"/>
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:textSize="@dimen/text_24sp"
+                    android:padding="@dimen/text_padding_xl"
+                    android:background="@drawable/image_view_border"
+                    />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_location_detail"
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:id="@+id/ll_location_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:theme="@style/CustomTextLabel"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:gravity="left"
+                app:layout_constraintTop_toBottomOf="@id/ll_date_detail"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/til_date_detail">
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginVertical="5dp">
+
+                <TextView
+                    android:id="@+id/tv_location_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ort: "
+                    android:textSize="@dimen/text_24sp"
+                    android:textColor="@color/cyan"
+                    android:padding="@dimen/text_padding"
+                    />
 
                 <TextView
                     android:id="@+id/tv_location_detail"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:autofillHints="Ort"
-                    android:hint="@string/et_location"
-                    android:inputType="none" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:textSize="@dimen/text_24sp"
+                    android:padding="@dimen/text_padding_xl"
+                    android:background="@drawable/image_view_border"
+                    />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_description_detail"
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:id="@+id/ll_description_detail"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:gravity="top"
-                android:theme="@style/CustomTextLabel"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                app:layout_constraintTop_toBottomOf="@id/ll_location_detail"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/til_location_detail">
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginVertical="5dp">
+
+                <TextView
+                    android:id="@+id/tv_description_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Beschreibung: "
+                    android:textSize="@dimen/text_24sp"
+                    android:textColor="@color/cyan"
+                    android:padding="@dimen/text_padding"
+                    />
 
                 <TextView
                     android:id="@+id/tv_description_detail"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/et_description"
-                    android:autofillHints="Beschreibung"
-                    android:hint="@string/et_description"
-                    android:inputType="none" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_height="144dp"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:textSize="@dimen/text_24sp"
+                    android:padding="@dimen/text_padding_xl"
+                    android:background="@drawable/image_view_border"
+                    />
+
+            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

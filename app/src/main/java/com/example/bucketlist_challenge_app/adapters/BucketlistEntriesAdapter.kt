@@ -61,7 +61,7 @@ class BucketlistEntriesAdapter(
             holder.itemView.findViewById<ImageView>(R.id.iv_image)
                 .setImageURI(Uri.parse(model.imagePath))
             holder.itemView.findViewById<TextView>(R.id.tv_entry_title).text = model.title
-            holder.itemView.findViewById<TextView>(R.id.tv_entry_date).text = model.description
+            holder.itemView.findViewById<TextView>(R.id.tv_entry_date).text = model.date
             holder.itemView.setOnClickListener{
                 if(onClickListener != null){
                     onClickListener!!.onClick(position, model)

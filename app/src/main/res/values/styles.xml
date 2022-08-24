@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="CustomNoActionBarTheme" parent="@style/Theme.AppCompat.NoActionBar">
+    <style name="CustomNoActionBarTheme" parent="@style/Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:statusBarColor">@color/light_cyan</item>
     </style>
+
     <style name="CustomToolbarStyle" parent="Widget.MaterialComponents.Toolbar">
-        <item name="android:textColorPrimary">@color/orange</item>
-        <item name="android:colorControlNormal">@color/orange</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:colorControlNormal">@color/white</item>
     </style>
+
     <style name="CustomTextLabel"
-        parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="android:textColorHint">@color/hint_color</item>
         <item name="android:textSize">@dimen/text_24sp</item>
-        <item name="colorControlNormal">@color/gray</item>
+        <item name="colorControlNormal">@color/hint_color</item>
         <item name="colorControlActivated">@color/orange</item>
+        <item name="android:background">@android:color/transparent</item>
     </style>
+
 </resources>

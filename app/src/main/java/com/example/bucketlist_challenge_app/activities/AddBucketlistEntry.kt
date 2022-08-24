@@ -15,11 +15,14 @@ import android.provider.MediaStore
 import android.provider.Settings
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageView
 import com.example.bucketlist_challenge_app.R
 import com.example.bucketlist_challenge_app.database.DatabaseHandler
 import com.example.bucketlist_challenge_app.models.BucketlistEntryModel
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
@@ -49,6 +52,7 @@ class AddBucketlistEntry : AppCompatActivity(), View.OnClickListener {
         setSupportActionBar(findViewById(R.id.toolbar_add_entry))
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.title = "Eintrag hinzufügen"
+        supportActionBar!!.setCustomView(R.layout.abs_layout)
 
         if (intent.hasExtra(MainActivity.EXTRA_ENTRY_DETAILS)) {
             mBucketlistEntryDetails =

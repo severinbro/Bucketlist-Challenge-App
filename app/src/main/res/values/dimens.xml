@@ -7,13 +7,17 @@
     <dimen name="et_description">244dp</dimen>
 
     <dimen name="entry_content_padding">5dp</dimen>
-    <dimen name="entry_circular_image_size">70dp</dimen>
+    <dimen name="entry_circular_image_size">100dp</dimen>
     <dimen name="entry_ll_marginStart">10dp</dimen>
     <dimen name="entry_ll_marginEnd">2dp</dimen>
     <dimen name="entry_title_textsize">16sp</dimen>
     <dimen name="entry_date_textsize">14sp</dimen>
-    <dimen name="card_corner_radius">3dp</dimen>
+    <dimen name="card_corner_radius">70dp</dimen>
 
     <dimen name="text_24sp">24sp</dimen>
+    <dimen name="border_radius">5dp</dimen>
+    <dimen name="box_elevation">5dp</dimen>
+    <dimen name="text_padding">8dp</dimen>
+    <dimen name="text_padding_xl">12dp</dimen>
 
 </resources>

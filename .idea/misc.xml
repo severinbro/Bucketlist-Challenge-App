@@ -4,7 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/sever/AndroidStudioProjects/BucketlistChallengeApp/app/src/main/res/drawable/ic_action_add_24dp.xml" value="0.212" />
-        <entry key="..\:/Users/sever/AndroidStudioProjects/BucketlistChallengeApp/app/src/main/res/layout/activity_add_bucketlist_entry.xml" value="0.3582427536231884" />
+        <entry key="..\:/Users/sever/AndroidStudioProjects/BucketlistChallengeApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2285" />
+        <entry key="..\:/Users/sever/AndroidStudioProjects/BucketlistChallengeApp/app/src/main/res/drawable/image_view_border.xml" value="0.2285" />
+        <entry key="..\:/Users/sever/AndroidStudioProjects/BucketlistChallengeApp/app/src/main/res/layout/abs_layout.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/sever/AndroidStudioProjects/BucketlistChallengeApp/app/src/main/res/layout/activity_add_bucketlist_entry.xml" value="0.25" />
         <entry key="..\:/Users/sever/AndroidStudioProjects/BucketlistChallengeApp/app/src/main/res/layout/activity_main.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/sever/AndroidStudioProjects/BucketlistChallengeApp/app/src/main/res/layout/activity_new_bucketlist_entry.xml" value="0.1265625" />
         <entry key="..\:/Users/sever/AndroidStudioProjects/BucketlistChallengeApp/app/src/main/res/layout/detail_view.xml" value="0.25" />
