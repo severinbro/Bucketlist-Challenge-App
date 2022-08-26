@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_screen1">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/light_cyan">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -11,10 +12,14 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="@dimen/img_width_height"
             android:layout_height="@dimen/img_width_height"
-            android:src="@drawable/bucketlist_v1" />
+            android:contentDescription="@string/image_content_description"
+            android:src="@drawable/ini_thomas_mogli"
+            app:civ_border_color="@color/circular_image_border_color"
+            android:layout_marginBottom="20dp"
+            android:elevation="@dimen/box_elevation"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -33,7 +38,8 @@
             android:text="@string/slide_1_desc"
             android:textAlignment="center"
             android:textColor="@android:color/white"
-            android:textSize="@dimen/slide_desc" />
+            android:textSize="@dimen/text_24sp" />
 
     </LinearLayout>
+
 </RelativeLayout>

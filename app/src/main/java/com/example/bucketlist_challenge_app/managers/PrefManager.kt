@@ -17,10 +17,18 @@ class PrefManager(var _context: Context) {
             editor.commit()
         }
 
+    var isFirstDbInitialization: Boolean
+        get() = pref.getBoolean(IS_FIRST_INITIALIZATION, true)
+        set(isFirstInitial) {
+            editor.putBoolean(IS_FIRST_INITIALIZATION, isFirstInitial)
+            editor.commit()
+        }
+
     companion object {
         // Shared preferences file name
         private const val PREF_NAME = "welcome"
         private const val IS_FIRST_TIME_LAUNCH = "IsFirstTimeLaunch"
+        private const val IS_FIRST_INITIALIZATION = "IsFirstInitialization"
     }
 
     init {

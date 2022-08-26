@@ -55,7 +55,9 @@ class WelcomeActivity : AppCompatActivity() {
         // layouts of welcome sliders
         layouts = intArrayOf(
             R.layout.welcome_slide1,
-            R.layout.welcome_slide2
+            R.layout.welcome_slide2,
+            R.layout.welcome_slide3,
+            R.layout.welcome_slide4
         )
 
         // adding bottom dots
@@ -86,7 +88,7 @@ class WelcomeActivity : AppCompatActivity() {
         dotsLayout!!.removeAllViews()
         for (i in dots.indices) {
             dots[i] = TextView(this)
-            dots[i]!!.text = Html.fromHtml("?")
+            dots[i]!!.text = Html.fromHtml("•")
             dots[i]!!.textSize = 35f
             dots[i]!!.setTextColor(colorsInactive[currentPage])
             dotsLayout!!.addView(dots[i])
@@ -117,7 +119,8 @@ class WelcomeActivity : AppCompatActivity() {
             } else {
                 // still pages are left
                 btnNext!!.text = getString(R.string.next)
-                btnSkip!!.visibility = View.VISIBLE
+//                btnSkip!!.visibility = View.VISIBLE
+                btnSkip!!.visibility = View.GONE
             }
         }
 

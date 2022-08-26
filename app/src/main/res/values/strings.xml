@@ -14,13 +14,18 @@
 
     <string name="next">Weiter</string>
     <string name="skip">Überspringen</string>
-    <string name="start">Verstanden!</string>
+    <string name="start">Dann los!</string>
 
-    <string name="slide_1_title">Welcome to Javatpoint!</string>
-    <string name="slide_1_desc">Javatpoint is passionate to offer better technical content to the world.</string>
+    <string name="slide_1_title">Moin ihr beiden Mäuse!</string>
+    <string name="slide_1_desc">Wochenlang haben wir uns darüber Gedanken gemacht, was wir euch schönes zur Hochzeit zukommen lassen können. Da wir keine Fans von materiellen Geschenken sind, kam uns die Idee, euch ein paar Inspirationen für Eure gemeinsame Zeit zukommen zu lassen.</string>
 
-    <string name="slide_2_title">Android</string>
-    <string name="slide_2_desc">Android is a mobile operating system developed by Google.</string>
-    <string name="welcome_activity_view">Willkommen</string>
+    <string name="slide_2_desc">Da man ein physisches Buch aber in den entscheidenden Momenten oft nicht zur Hand hat, haben wir uns eine etwas mobilere Version einfallen lassen: diese App!</string>
+
+    <string name="welcome_activity_view">Bucketlist</string>
+
+    <string name="slide_3_desc">Severin hat diese App nur für euch geschrieben und wir haben sie gemeinsam befüllt. Ich hoffe sie bringt euch schöne Erlebnisse und Ideen für gemeinsame Aktivitäten!</string>
+
+    <string name="slide_4_title">Wir haben euch lieb!</string>
+    <string name="slide_4_desc">Euer Severin und Eure Muju &#128522;</string>
 
 </resources>

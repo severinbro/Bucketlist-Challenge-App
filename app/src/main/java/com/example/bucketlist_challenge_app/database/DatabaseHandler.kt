@@ -7,6 +7,7 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.example.bucketlist_challenge_app.models.BucketlistEntryModel
+import com.example.bucketlist_challenge_app.utils.Constants
 import java.sql.SQLException
 
 class DatabaseHandler(context: Context) :
