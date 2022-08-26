@@ -8,12 +8,14 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bucketlist_challenge_app.R
 import com.example.bucketlist_challenge_app.adapters.BucketlistEntriesAdapter
 import com.example.bucketlist_challenge_app.database.DatabaseHandler
+import com.example.bucketlist_challenge_app.managers.PrefManager
 import com.example.bucketlist_challenge_app.models.BucketlistEntryModel
 import com.happyplaces.utils.SwipeToDeleteCallback
 import pl.kitek.rvswipetodelete.SwipeToEditCallback
@@ -23,6 +25,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val prefManager = PrefManager(this)
+        if (prefManager.isFirstTimeLaunch){
+            prefManager.isFirstTimeLaunch = false
+            val welcomeIntent = Intent(this@MainActivity, WelcomeActivity::class.java)
+            startActivity(welcomeIntent)
+            finish()
+        }
 
         val fabAddItem: View = findViewById<Button>(R.id.fabAddItem)
         fabAddItem.setOnClickListener {
@@ -88,6 +98,10 @@ class MainActivity : AppCompatActivity() {
             findViewById<TextView>(R.id.tv_no_entries_yet).visibility = View.VISIBLE
         }
 
+    }
+
+    private fun btnClick(view: View){
+        Toast.makeText(this, "Clicked on Button", Toast.LENGTH_SHORT).show()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
