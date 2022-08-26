@@ -123,7 +123,8 @@
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ll_location_detail">
+                app:layout_constraintTop_toBottomOf="@id/ll_location_detail"
+                app:layout_constraintBottom_toBottomOf="parent">
 
                 <TextView
                     android:id="@+id/tv_description_text"
@@ -137,7 +138,7 @@
                 <TextView
                     android:id="@+id/tv_description_detail"
                     android:layout_width="match_parent"
-                    android:layout_height="144dp"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/image_view_border"
                     android:focusable="false"
                     android:focusableInTouchMode="false"

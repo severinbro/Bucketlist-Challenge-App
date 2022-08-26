@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Bucketlist-App</string>
+    <string name="app_name">Bucketlist</string>
 
     <string name="title_add_entry">Eintrag hinzufügen</string>
     <string name="title_detail_view">Detailansicht</string>
